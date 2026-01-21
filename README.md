@@ -18,3 +18,27 @@ This project focuses on optimizing a Deep ECG Model to significantly reduce its 
 ## Background
 
 This work builds upon the paper _"A deep learning ECG model for localization of occlusion myocardial infarction"_ (Gustafsson et al., 2025). We utilize the fully trained model from this research as our baseline and aim to compress it using various optimization strategies.
+
+## Setup
+
+Follow the steps below to prepare your environment and fetch the necessary data.
+
+### 1. Install Dependencies
+
+This project uses uv for package management. Run the following to install requirements:
+
+```bash
+    uv pip install -r requirements.txt
+    # OR, if you use uv sync:
+    # uv sync
+```
+
+### 2. Download Data
+
+Download from [PTB-XL, a large publicly available electrocardiography dataset](https://physionet.org/content/ptb-xl/1.0.3/), the fastest way is using AWS CLI:
+
+```bash
+    aws s3 sync --no-sign-request s3://physionet-open/ptb-xl/1.0.3/ data
+```
+
+The code expects the dataset to be in the **data** folder.
