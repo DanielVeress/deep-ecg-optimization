@@ -25,12 +25,18 @@ Follow the steps below to prepare your environment and fetch the necessary data.
 
 ### 1. Install Dependencies
 
-This project uses uv for package management. Run the following to install requirements:
+**Using standard pip:**
 
 ```bash
-    uv pip install -r requirements.txt
-    # OR, if you use uv sync:
-    # uv sync
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+**Using uv (recommended for speed):**
+
+```bash
+uv sync
 ```
 
 ### 2. Download Data
@@ -38,7 +44,7 @@ This project uses uv for package management. Run the following to install requir
 Download from [PTB-XL, a large publicly available electrocardiography dataset](https://physionet.org/content/ptb-xl/1.0.3/), the fastest way is using AWS CLI:
 
 ```bash
-    aws s3 sync --no-sign-request s3://physionet-open/ptb-xl/1.0.3/ data
+aws s3 sync --no-sign-request s3://physionet-open/ptb-xl/1.0.3/ data
 ```
 
-The code expects the dataset to be in the **data** folder.
+_Note: The code expects the dataset to be in the_ `data` _folder._
